@@ -1,0 +1,7 @@
+Makefile
+*.so
+moc_*.cpp
+*.o
+*.pro.user
+TestDriver
+devel.pri

@@ -2,17 +2,22 @@
 #define DRIVERTEMPLATE_H
 
 #include <QObject>
-#include <QIcon>
 #include <QNetworkAccessManager>
 #include <QList>
+#include <QDebug>
 #include "task.h"
 #include "webauth.h"
+#include "interface.h"
 
-class DriverTemplate : public QObject
+class DriverTemplate : public QObject, public DriverInterface
 {
     Q_OBJECT
+    Q_INTERFACES(DriverInterface)
+
 public:
     explicit DriverTemplate(QObject *parent = 0);
+
+    virtual void init() { manager = new QNetworkAccessManager(this); }
 
     // driver name
     virtual QString getDriverName() = 0;
@@ -23,10 +28,9 @@ public:
     // driver icon
     virtual QIcon getDriverIcon() = 0;
 
-    virtual void init() { manager = new QNetworkAccessManager(this); }
-
     // check connection
     virtual void checkConnection() = 0;
+
 
 protected:
     QNetworkAccessManager *manager;
@@ -36,8 +40,6 @@ protected:
     WebAuth webauth;
 signals:
     void error(QString text);
-
-public slots:
 
 };
 

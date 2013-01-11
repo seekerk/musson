@@ -4,6 +4,8 @@
 #include "json.h"
 #include "webauth.h"
 
+#include <QtCore>
+
 VKdriver::VKdriver()
 {
 }
@@ -36,8 +38,8 @@ void VKdriver::gotResponse()
 
     foreach (Task task, tasks)
     {
-        qDebug() << __PRETTY_FUNCTION__ << ":" << __LINE__ << ": task" << task.url().toString();
-        qDebug() << __PRETTY_FUNCTION__ << ":" << __LINE__ << ": task" << (task.reply()->isFinished() ? "finished" : "not finished");
+        fprintf(stderr, "%s:%d: task %s\n", __PRETTY_FUNCTION__, __LINE__, task.url().toString().toUtf8().data());
+        qWarning() << __PRETTY_FUNCTION__ << ":" << __LINE__ << ": task" << (task.reply()->isFinished() ? "finished" : "not finished");
 
         if (!task.isFinished())
             continue;
@@ -144,3 +146,5 @@ void VKdriver::processRequests(TaskType::TaskType type)
         tasks.append(task);
     }
 }
+
+Q_EXPORT_PLUGIN2(DriverInterface, VKdriver);

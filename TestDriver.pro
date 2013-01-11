@@ -31,12 +31,7 @@ symbian:TARGET.CAPABILITY += NetworkServices
 # CONFIG += qtquickcomponents
 
 # The .cpp file which was generated for your project. Feel free to hack it.
-SOURCES += main.cpp \
-    drivertemplate.cpp \
-    vkdriver.cpp \
-    json.cpp \
-    task.cpp \
-    webauth.cpp
+SOURCES += main.cpp
 
 # Please do not modify the following two lines. Required for deployment.
 include(qmlapplicationviewer/qmlapplicationviewer.pri)
@@ -50,14 +45,4 @@ OTHER_FILES += \
     qtc_packaging/debian_harmattan/compat \
     qtc_packaging/debian_harmattan/changelog
 
-HEADERS += \
-    drivertemplate.h \
-    vkdriver.h \
-    json.h \
-    task.h \
-    webauth.h
-
-
-
-
-
+HEADERS += drivers/common/interface.h

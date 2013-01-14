@@ -4,6 +4,7 @@
 #include <QString>
 #include <QDir>
 #include <QNetworkProxy>
+#include <QVariant>
 
 #include "datatypes/photo.h"
 #include "datatypes/album.h"

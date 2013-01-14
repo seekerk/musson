@@ -31,7 +31,7 @@ public:
 private:
     void authorize();
 
-    void processRequests(TaskType::TaskType type);
+    void processRequests(Driver::Action type);
 
 private slots:
     void gotResponse();

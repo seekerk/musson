@@ -28,7 +28,7 @@ void VKdriver::checkConnection()
     QNetworkReply *resp = manager->get(QNetworkRequest(url));
     connect (resp, SIGNAL(finished()), this, SLOT(gotResponse()));
 
-    tasks.append(Task(TaskType::checkConnection, url, resp));
+    tasks.append(Task(Driver::checkConnection, url, resp));
 }
 
 void VKdriver::gotResponse()
@@ -63,10 +63,10 @@ void VKdriver::gotResponse()
             int errorCode = result["error"].toMap()["error_code"].toInt();
 
             // checks that authorization was needed
-            if (task.type() == TaskType::checkConnection && errorCode == 113)
+            if (task.type() == Driver::checkConnection && errorCode == 113)
             {
                 authorize();
-                futureTasks.append(Task(task.type(), TaskType::authorize, task.url()));
+                futureTasks.append(Task(task.type(), Driver::authorize, task.url()));
             } else {
                 qDebug() << __PRETTY_FUNCTION__ << __LINE__ << "error_code=" << errorCode;
                 emit error(result["error"].toMap()["error_msg"].toString());
@@ -110,10 +110,10 @@ void VKdriver::authorized(QUrl url)
     qDebug() << __PRETTY_FUNCTION__ << ":" << __LINE__ << ": got token" << this->accessToken;
     qDebug() << __PRETTY_FUNCTION__ << ":" << __LINE__ << ": user ID" << this->userId;
 
-    processRequests(TaskType::authorize);
+    processRequests(Driver::authorize);
 }
 
-void VKdriver::processRequests(TaskType::TaskType type)
+void VKdriver::processRequests(Driver::Action type)
 {
     QList<Task> removedTasks;
     QList<Task> addedTasks;
@@ -124,7 +124,7 @@ void VKdriver::processRequests(TaskType::TaskType type)
         {
             removedTasks.append(task);
             QUrl url(task.url());
-            if (type == TaskType::authorize)
+            if (type == Driver::authorize)
             {
                 url.removeQueryItem("access_token");
                 url.addQueryItem("access_token", this->accessToken);

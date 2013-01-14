@@ -3,15 +3,15 @@
 class TaskData : public QSharedData
 {
 public:
-    TaskType::TaskType type;
+    Driver::Action type;
     QNetworkReply *reply;
 
     // used if task needed to have completed other task.
-    TaskType::TaskType requiredTask;
+    Driver::Action requiredTask;
     QUrl url;
 
     TaskData()
-        : QSharedData(), reply(NULL), requiredTask(TaskType::authorize)
+        : QSharedData(), reply(NULL), requiredTask(Driver::authorize)
     {}
 
     TaskData(const TaskData &other)
@@ -27,7 +27,7 @@ public:
     {}
 };
 
-Task::Task(TaskType::TaskType type, QUrl url, QNetworkReply *reply)
+Task::Task(Driver::Action type, QUrl url, QNetworkReply *reply)
 {
     d = new TaskData;
     d->type = type;
@@ -35,7 +35,7 @@ Task::Task(TaskType::TaskType type, QUrl url, QNetworkReply *reply)
     d->reply = reply;
 }
 
-Task::Task(TaskType::TaskType type, TaskType::TaskType reqTask, QUrl url)
+Task::Task(Driver::Action type, Driver::Action reqTask, QUrl url)
 {
     d = new TaskData;
     d->type = type;
@@ -70,11 +70,11 @@ bool Task::isFinished() const
 QUrl Task::url() const { return d->url; }
 void Task::setUrl(QUrl url) { d->url = url; }
 
-TaskType::TaskType Task::type() const { return d->type; }
-void Task::setType(TaskType::TaskType type) { d->type = type; }
+Driver::Action Task::type() const { return d->type; }
+void Task::setType(Driver::Action type) { d->type = type; }
 
-TaskType::TaskType Task::requiredTask() const { return d->requiredTask; }
-void Task::setRequiredTask(TaskType::TaskType reqType) { d->requiredTask = reqType; }
+Driver::Action Task::requiredTask() const { return d->requiredTask; }
+void Task::setRequiredTask(Driver::Action reqType) { d->requiredTask = reqType; }
 
 QNetworkReply* Task::reply() const { return d->reply; }
 void Task::setReply(QNetworkReply *reply) { d->reply = reply; }

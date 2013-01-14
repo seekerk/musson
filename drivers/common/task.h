@@ -5,6 +5,8 @@
 #include <QUrl>
 #include <QSharedDataPointer>
 
+#include "interface.h"
+
 class TaskData;
 
 class Task
@@ -16,7 +18,7 @@ private:
 public:
     // constructor for started tasks
     explicit Task(Driver::Action type, QUrl url, QNetworkReply *reply);
-    explicit Task(Driver::Action type, TaskType::TaskType reqTask, QUrl url);
+    explicit Task(Driver::Action type, Driver::Action reqTask, QUrl url);
     Task(const Task &task);
 
     ~Task();
@@ -36,7 +38,7 @@ public:
     QNetworkReply* reply() const;
     void setReply(QNetworkReply* reply);
 
-    TaskType::TaskType requiredTask() const;
+    Driver::Action requiredTask() const;
     void setRequiredTask(Driver::Action reqType);
 };
 

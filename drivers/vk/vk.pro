@@ -1,4 +1,5 @@
 # include private developer settings
+exists(../../devel.pri):include(../../devel.pri)
 exists(../devel.pri):include(../devel.pri)
 
 include(../common/common.pri)
@@ -10,3 +11,7 @@ TARGET = mssnvk
 HEADERS += vkdriver.h
 
 SOURCES += vkdriver.cpp
+
+#install
+target.path = $$DRIVERSDIR
+INSTALLS += target

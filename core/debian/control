@@ -1,0 +1,23 @@
+Source: musson-core
+Section: libs
+Priority: optional
+Maintainer: Musson project team <musson@cs.karelia.ru>
+Uploaders: Kirill Kulakov <kulakov@cs.karelia.ru>, Vladimir Dmitriev <vdmitrie@cs.karelia.ru>, Konstantin Kirpichenok <kirpiche@cs.karelia.ru>, Anna Samoryadova <samoryad@cs.karelia.ru>, Kirill Ivashov <ivashov@cs.karelia.ru>, Pavel Shiryaev <shiryaev@cs.karelia.ru>
+Build-Depends: debhelper (>= 5), libqt4-dev
+Standards-Version: 3.8.1
+
+Package: musson-core
+Architecture: any
+Depends: ${shlibs:Depends} ${misc:Depends}
+Description: Musson Qt core library for social network clients.
+ Musson is a client to access services of social networks from desktop or mobile platform.
+ The Musson core provides a Qt library to easy access to Musson project functions.
+ The data from requests store into cache and can be requested iteratively.
+
+Package: musson-core-dev
+Architecture: any
+Depends: musson-core
+Description: Musson Qt core library for social network clients.
+ Musson is a client to access services of social networks from desktop or mobile platform.
+ The Musson core provides a Qt library to easy access to Musson project functions.
+ The data from requests store into cache and can be requested iteratively.

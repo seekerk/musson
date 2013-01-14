@@ -2,7 +2,14 @@
 #define _INTERFACE_H_
 
 class QString;
-class QIcon;
+class DriverInfo;
+
+namespace Driver {
+    enum Action {
+        checkConnection,
+        authorize
+    };
+}
 
 class DriverInterface {
 public:
@@ -16,13 +23,15 @@ public:
     virtual QString getDriverDisplayName() = 0;
 
     // driver icon
-    virtual QIcon getDriverIcon() = 0;
+    virtual QString getDriverIcon() = 0;
 
     // driver initialization
     virtual void init() = 0;
 
     // check connection
     virtual void checkConnection() = 0;
+
+    virtual DriverInfo getInfo() = 0;
 
 };
 

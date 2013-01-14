@@ -8,6 +8,7 @@
 #include "task.h"
 #include "webauth.h"
 #include "interface.h"
+#include "datatypes/driverinfo.h"
 
 class DriverTemplate : public QObject, public DriverInterface
 {
@@ -19,18 +20,8 @@ public:
 
     virtual void init() { manager = new QNetworkAccessManager(this); }
 
-    // driver name
-    virtual QString getDriverName() = 0;
-
-    // display name
-    virtual QString getDriverDisplayName() = 0;
-
-    // driver icon
-    virtual QIcon getDriverIcon() = 0;
-
-    // check connection
-    virtual void checkConnection() = 0;
-
+    // return information about driver without path to library
+    virtual DriverInfo getInfo();
 
 protected:
     QNetworkAccessManager *manager;

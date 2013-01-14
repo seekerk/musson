@@ -22,7 +22,7 @@ public:
 
     QString getDriverDisplayName() { return "ВКонтакте"; }
 
-    QIcon getDriverIcon() { return QIcon(); }
+    QString getDriverIcon() { return ""; }
 
     void checkConnection();
 

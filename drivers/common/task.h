@@ -5,13 +5,6 @@
 #include <QUrl>
 #include <QSharedDataPointer>
 
-namespace TaskType {
-    enum TaskType {
-        checkConnection,
-        authorize
-    };
-}
-
 class TaskData;
 
 class Task
@@ -22,8 +15,8 @@ private:
 
 public:
     // constructor for started tasks
-    explicit Task(TaskType::TaskType type, QUrl url, QNetworkReply *reply);
-    explicit Task(TaskType::TaskType type, TaskType::TaskType reqTask, QUrl url);
+    explicit Task(Driver::Action type, QUrl url, QNetworkReply *reply);
+    explicit Task(Driver::Action type, TaskType::TaskType reqTask, QUrl url);
     Task(const Task &task);
 
     ~Task();
@@ -37,14 +30,14 @@ public:
     QUrl url() const;
     void setUrl(QUrl url);
 
-    TaskType::TaskType type() const;
-    void setType(TaskType::TaskType type);
+    Driver::Action type() const;
+    void setType(Driver::Action type);
 
     QNetworkReply* reply() const;
     void setReply(QNetworkReply* reply);
 
     TaskType::TaskType requiredTask() const;
-    void setRequiredTask(TaskType::TaskType reqType);
+    void setRequiredTask(Driver::Action reqType);
 };
 
 #endif // TASK_H

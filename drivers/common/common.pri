@@ -14,7 +14,6 @@ DESTDIR = ../
 contains(DEFINES, ENABLE_DEBUG)|!isEmpty(ENABLE_DEBUG) {
     CONFIG += debug
     DEFINES += DEBUG
-    unix:!symbian:DEFINES += NO_RESOURCES
 } else {
     CONFIG += release
     CONFIG -= debug
@@ -31,7 +30,6 @@ CODECFORSRC = UTF-8
 
 HEADERS += \
     $$PWD/drivertemplate.h \
-    $$PWD/interface.h \
     $$PWD/json.h \
     $$PWD/task.h \
     $$PWD/webauth.h
@@ -41,3 +39,21 @@ SOURCES += \
     $$PWD/task.cpp \
     $$PWD/webauth.cpp \
     $$PWD/drivertemplate.cpp
+
+include(driver.pri)
+
+isEmpty(PREFIX):PREFIX = /usr
+message("Prefix is $$PREFIX")
+
+isEmpty(DRIVERSDIR): {
+    win32 {
+	DRIVERSDIR=$$PREFIX/drivers
+    } else {
+	DRIVERSDIR=$$PREFIX/share/musson/drivers
+    }
+} else {
+    message("You can specify DRIVERSDIR to define install path")
+}
+message("Install path is $$DRIVERSDIR")
+
+

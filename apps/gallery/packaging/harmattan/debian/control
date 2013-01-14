@@ -1,0 +1,82 @@
+Source: mysocials-lite
+Section: user/hidden
+Priority: optional
+Maintainer: MySocials project team <maemo-mysocials@cs.karelia.ru>
+Uploaders: Kirill Kulakov <kulakov@cs.karelia.ru>, Konstantin Kirpichonock <kirpiche@cs.karelia.ru>
+Build-Depends: debhelper (>=5), libqt4-dev, libqtwebkit-dev|libqt4-webkit-dev | libqt4-webkit, libxml2-dev, libglib2.0-dev, libxslt1.1
+Standards-Version: 3.8.1
+Homepage: http://oss.fruct.org/MySocials/
+XSBC-Bugtracker: http://oss.fruct.org/bugzilla/enter_bug.cgi?product=mysocials
+
+Package: mysocials-lite
+Architecture: any
+Depends: libqt4-core (>= 4.6), libc6 (>= 2.5.0-1), libgcc1 (>= 1:4.2.1), libqt4-gui (>= 4.6), libqt4-webkit | libqtwebkit4, libstdc++6 (>= 4.2.1), libxml2, libcurl3
+Description: MySocials client to access services of social networks.
+ MySocials is a client to access services of social networks. The client allows 
+ editing user profile data, managing contacts (friend lists), and sending messages. 
+ Our further plans include implementation of such an interesting feature 
+ as merging contacts (metacontacts, metaprofiles, and others) from different services.  
+XB-Maemo-Icon-26:
+ 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
+ SuGP/SRM/wAAAABJRU5ErkJggg==

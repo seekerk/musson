@@ -1,0 +1,17 @@
+<RCC>
+    <qresource prefix="/">
+        <file>icons/add.png</file>
+        <file>icons/delete.png</file>
+        <file>icons/refresh.png</file>
+        <file>icons/enable.png</file>
+        <file>icons/disable.png</file>
+        <file>icons/contact.png</file>
+        <file>icons/online.png</file>
+        <file>icons/photoalbum.png</file>
+        <file>icons/search.png</file>
+        <file>icons/clear.png</file>
+        <file>icons/back.png</file>
+        <file>icons/delete filter.png</file>
+        <file>icons/pointer.png</file>
+    </qresource>
+</RCC>

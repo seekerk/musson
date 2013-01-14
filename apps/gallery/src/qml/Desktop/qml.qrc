@@ -1,0 +1,31 @@
+<RCC>
+    <qresource prefix="/qml">
+        <file>AccountDelegate.qml</file>
+        <file>AccountHeader.qml</file>
+        <file>AccountSettings.qml</file>
+        <file>AddAccount.qml</file>
+        <file>AlbumDelegate.qml</file>
+        <file>AlbumHeader.qml</file>
+        <file>AlbumsPage.qml</file>
+        <file>BugReport.qml</file>
+        <file>BugReport.qml.old</file>
+        <file>constants.js</file>
+        <file>date.js</file>
+        <file>DriverDelegate.qml</file>
+        <file>EmptyState.qml</file>
+        <file>ListHighlight.qml</file>
+        <file>main.qml</file>
+        <file>NetworkSettings.qml</file>
+        <file>PhotoDelegate.qml</file>
+        <file>PhotoHeader.qml</file>
+        <file>PhotosPage.qml</file>
+        <file>ProfileDelegate.qml</file>
+        <file>ProfilesFooter.qml</file>
+        <file>ProfilesPage.qml</file>
+        <file>ProfilesTop.qml</file>
+        <file>stat.js</file>
+        <file>StatDelegate.qml</file>
+        <file>StatInfo.qml</file>
+        <file>UIConstants.js</file>
+    </qresource>
+</RCC>

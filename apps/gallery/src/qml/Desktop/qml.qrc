@@ -8,7 +8,6 @@
         <file>AlbumHeader.qml</file>
         <file>AlbumsPage.qml</file>
         <file>BugReport.qml</file>
-        <file>BugReport.qml.old</file>
         <file>constants.js</file>
         <file>date.js</file>
         <file>DriverDelegate.qml</file>

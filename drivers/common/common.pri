@@ -25,6 +25,7 @@ CONFIG (debug, debug|release) {
 } else {
     OBJECTS_DIR = build/release
 }
+MOC_DIR = build/moc
 
 CODECFORSRC = UTF-8
 

@@ -12,6 +12,8 @@
 #include "datatypes/qeventfeed.h"
 #include "datatypes/place.h"
 #include "datatypes/checkin.h"
+#include "datatypes/audio.h"
+#include "datatypes/video.h"
 #include "filter/filtermanager.h"
 
 class ServiceFilter;
@@ -533,6 +535,13 @@ private:
     QList<DriverInfo> cachedDriverList;
 
     CoreSettings *mSettings;
+
+    AccountList accounts;
+
+    // Filters
+    ServiceFilter* serviceFilter_;
+    FilterManager* filterManager_;
+    void createFilter();
 
 private slots:
     void updateAccount(QString accountId);

@@ -7,7 +7,15 @@ class DriverInfo;
 namespace Driver {
     enum Action {
         checkConnection,
-        authorize
+        authorize,
+        getPhotos,
+        getAudio,
+        getVideo,
+        getMessages,
+        deleteMessage,
+        getFriends,
+        getPhotoComments,
+        readMessage
     };
 }
 

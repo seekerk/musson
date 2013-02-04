@@ -19,6 +19,8 @@ public:
 
     Account(const Account& other);
 
+    Account(QString libraryName, QString accountId, bool isDisabled);
+
     QString accountId() const {return this->mAccountId;}
 
     DriverInfo getDriverInfo() const;
@@ -39,6 +41,10 @@ public:
 
     MessageList getDraftMessages();
 
+    Account& operator=(const Account& other);
+
+    bool ready() const;
+
 signals:
     void accountUpdated(QString accountId);
 
@@ -48,7 +54,7 @@ private:
     bool disabled;
 };
 
-typedef QList<Account> AccountList;
+typedef QList<Account*> AccountList;
 
 Q_DECLARE_METATYPE(Account)
 
